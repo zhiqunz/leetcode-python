@@ -11,6 +11,7 @@
 所以返回 [0, 1]
 """
 
+
 class Solution:
     def twoSum(self, nums, target):
         """
@@ -18,4 +19,13 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
+        for index, i in enumerate(nums):
+            if (target - i) in nums:
+                return (index, nums.index(target - i))
 
+
+nums = [2, 7, 11, 15]
+target = 26
+solution = Solution()
+answer = solution.twoSum(nums, target)
+print(answer)
