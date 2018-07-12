@@ -21,7 +21,7 @@ class Solution:
         """
         for index, i in enumerate(nums):
             if (target - i) in nums:
-                return (index, nums.index(target - i))
+                return [index, nums.index(target - i)]
 
 
 if __name__ == "__main__":
