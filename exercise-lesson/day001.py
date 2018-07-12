@@ -20,13 +20,13 @@ class Solution:
         :rtype: List[int]
         """
         for index, i in enumerate(nums):
-            if (target - i) in nums:
+            if (target - i) in nums[index+1:]:
                 return [index, nums.index(target - i)]
 
 
 if __name__ == "__main__":
-    nums = [2, 7, 11, 15]
-    target = 26
+    nums = [3, 2, 4]
+    target = 6
     solution = Solution()
     answer = solution.twoSum(nums, target)
     print(answer)
