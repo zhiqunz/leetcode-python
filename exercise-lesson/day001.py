@@ -24,8 +24,9 @@ class Solution:
                 return (index, nums.index(target - i))
 
 
-nums = [2, 7, 11, 15]
-target = 26
-solution = Solution()
-answer = solution.twoSum(nums, target)
-print(answer)
+if __name__ == "__main__":
+    nums = [2, 7, 11, 15]
+    target = 26
+    solution = Solution()
+    answer = solution.twoSum(nums, target)
+    print(answer)
