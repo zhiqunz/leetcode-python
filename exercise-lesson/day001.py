@@ -20,13 +20,30 @@ class Solution:
         :rtype: List[int]
         """
         for index, i in enumerate(nums):
-            if (target - i) in nums[index+1:]:
+            if (target - i) in nums[index + 1:]:
                 return [index, nums.index(target - i)]
+
+    def towSum_dct(self, nums, target):
+        """
+                :type nums: List[int]
+                :type target: int
+                :rtype: List[int]
+        """
+        tmp_dct = {}
+        for index, i in enumerate(nums):
+            if target - i in tmp_dct:
+                return [tmp_dct[target - i], index]
+
+            tmp_dct[i] = index
 
 
 if __name__ == "__main__":
     nums = [3, 2, 4]
+    nums_1 = [2, 7, 11, 15]
     target = 6
+    target_1 = 9
     solution = Solution()
-    answer = solution.twoSum(nums, target)
+    answer = solution.towSum_dct(nums, target)
+    answer_1 = solution.towSum_dct(nums_1, target_1)
     print(answer)
+    print(answer_1)
