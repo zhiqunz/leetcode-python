@@ -37,20 +37,17 @@ class Solution:
         :rtype: ListNode
         """
         result = None
-        carry_flg = False
-        #循环条件 l1还有下一个 或者 l2还有下一个 或者 前一回相加的结果有进位
-        while l1 or l2 or carry_flg:
-            add_result = getattr(l1, 'val', 0) + getattr(l2, 'val', 0)
+        carry = 0
+        # 循环条件 l1还有下一个 或者 l2还有下一个 或者 前一回相加的结果有进位
+        while l1 or l2 or carry:
+            add_result = getattr(l1, 'val', 0) + getattr(l2, 'val', 0) + carry
             # 进位处理
-            if carry_flg:
-                add_result += 1
-            if add_result >= 10:
-                carry_flg = True
-                add_result = add_result % 10
+            if add_result >=10:
+                carry = int(add_result / 10)
+                lst_current = ListNode(add_result % 10)
             else:
-                carry_flg = False
-            # 进位处理后的结果进行listNode
-            lst_current = ListNode(add_result)
+                carry = 0
+                lst_current = ListNode(add_result)
             # 第一次运行时，当前节点保存在result，否则保存在上一个的next
             if result is None:
                 result = lst_current
