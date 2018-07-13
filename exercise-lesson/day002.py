@@ -38,8 +38,10 @@ class Solution:
         """
         result = None
         carry_flg = False
-        while l1 is not None or l2 is not None:
+        #循环条件 l1还有下一个 或者 l2还有下一个 或者 前一回相加的结果有进位
+        while l1 or l2 or carry_flg:
             add_result = getattr(l1, 'val', 0) + getattr(l2, 'val', 0)
+            # 进位处理
             if carry_flg:
                 add_result += 1
             if add_result >= 10:
@@ -47,8 +49,9 @@ class Solution:
                 add_result = add_result % 10
             else:
                 carry_flg = False
+            # 进位处理后的结果进行listNode
             lst_current = ListNode(add_result)
-
+            # 第一次运行时，当前节点保存在result，否则保存在上一个的next
             if result is None:
                 result = lst_current
             else:
@@ -73,10 +76,10 @@ def get_lst(num):
 
     return l1
 
-if __name__ == "__main__":
 
-    lst1 = get_lst(34)
-    lst2 = get_lst(465)
+if __name__ == "__main__":
+    lst1 = get_lst(5)
+    lst2 = get_lst(5)
     s1 = Solution()
     lst3 = s1.addTwoNumbers(lst1, lst2)
 
