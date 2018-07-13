@@ -25,9 +25,9 @@ class Solution:
 
     def towSum_dct(self, nums, target):
         """
-                :type nums: List[int]
-                :type target: int
-                :rtype: List[int]
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
         """
         tmp_dct = {}
         for index, i in enumerate(nums):
