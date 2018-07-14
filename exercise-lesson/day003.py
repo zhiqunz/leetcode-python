@@ -23,9 +23,9 @@ class Solution:
             if i not in tmp:
                 tmp += i
             else:
-                if len(tmp)> length:
+                if len(tmp) > length:
                     length = len(tmp)
-                tmp = tmp[tmp.index(i)+1:]+i
+                tmp = tmp[tmp.index(i) + 1:] + i
         if len(tmp) > length:
             length = len(tmp)
 
