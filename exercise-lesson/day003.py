@@ -17,6 +17,25 @@ class Solution:
         :type s: str
         :rtype: int
         """
+        tmp = ""
+        length = 0
+        for i in s:
+            if i not in tmp:
+                tmp += i
+            else:
+                if len(tmp)> length:
+                    length = len(tmp)
+                tmp = tmp[tmp.index(i)+1:]+i
+        if len(tmp) > length:
+            length = len(tmp)
+
+        return length
+
+    def lengthOfLongestSubstring1(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
         # 如果参数不是字符串，返回0
         if type(s) != str or not s:
             return 0
